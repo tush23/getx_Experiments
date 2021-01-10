@@ -31,6 +31,8 @@ class NewscontrollerController extends GetxController {
   void getNewData() {
     _newProvider.getNewsData().then((value) {
       print(value.body.articles[0].title);
+      // value.hasError
+      // value.unauthorized
       // var k = News.fromJson(json.decode(value.bodyString));
       // print(k.toJson());
     });
