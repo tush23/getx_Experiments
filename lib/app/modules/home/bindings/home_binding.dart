@@ -7,9 +7,10 @@ import 'package:getx_cli/app/modules/home/controllers/storecontroller_controller
 class HomeBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<NewscontrollerController>(
-      () => NewscontrollerController(),
-    );
+    print('dependencies--injected Home');
+    // Get.lazyPut<NewscontrollerController>(
+    //   () => NewscontrollerController(),
+    // );
     Get.lazyPut<HomeController>(
       () => HomeController(),
     );
