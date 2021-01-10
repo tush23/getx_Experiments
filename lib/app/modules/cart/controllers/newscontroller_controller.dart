@@ -43,6 +43,15 @@ class NewscontrollerController extends GetxController with StateMixin<News> {
         change(null, status: RxStatus.error(value.statusCode.toString()));
         // throw Exception(value.statusCode);
       }
+      if (value.unauthorized) {
+        change(null, status: RxStatus.error(value.statusCode.toString()));
+        // throw Exception(value.statusCode);
+      }
+      if (value.status.connectionError) {
+        print('----value.status.connectionError----');
+        change(null,
+            status: RxStatus.error('----value.status.connectionError----'));
+      }
 
       // value.hasError
       // value.unauthorized

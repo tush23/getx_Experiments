@@ -6,9 +6,9 @@ import 'package:getx_cli/app/modules/cart/controllers/newscontroller_controller.
 class CartBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<NewscontrollerController>(
-      () => NewscontrollerController(),
-    );
+    // Get.lazyPut<NewscontrollerController>(
+    //   () => NewscontrollerController(),
+    // );
     Get.lazyPut<CartController>(
       () => CartController(),
     );
