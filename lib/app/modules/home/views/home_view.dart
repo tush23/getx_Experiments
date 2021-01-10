@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:getx_cli/app/modules/cart/views/cart_view.dart';
 
 import 'package:getx_cli/app/modules/home/controllers/home_controller.dart';
 
@@ -13,9 +14,15 @@ class HomeView extends GetView<HomeController> {
         centerTitle: true,
       ),
       body: Center(
-        child: Text(
-          'HomeView is working',
-          style: TextStyle(fontSize: 20),
+        child: Column(
+          children: [
+            Text(
+              'HomeView is working',
+              style: TextStyle(fontSize: 20),
+            ),
+            FlatButton(
+                onPressed: () => Get.to(CartView()), child: Text("Cart GOTOT"))
+          ],
         ),
       ),
     );
