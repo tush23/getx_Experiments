@@ -10,7 +10,7 @@ class NewsProvider extends GetConnect {
   var _decoder = (map) => News.fromJson(map);
 
   String url =
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=595a430e1e364be4952d4ceba47f6db1';
+      'https://newsapi.org/v2/top-headlines?country=in&apiKey=595a430e1e364be4952d4ceb7f6db1';
   @override
   void onInit() {
     httpClient.addRequestModifier((request) {
@@ -36,11 +36,13 @@ class NewsProvider extends GetConnect {
   // }
   _newsDecoder(res) => News.fromJson(res);
 
-  Future<Response<News>> getNewsData() async => get(url,
-          // decoder: _newsDecoder);
-          decoder: (res) {
-        return News.fromJson(res);
-      });
+  Future<Response<News>> getNewsData() async => get(
+        'https://newsapi.org/v2/top-headlines?country=in&apiKey=595a430e1e364b4952d4ceba47f6db1',
+        // decoder: _newsDecoder);
+        decoder: (res) {
+          return News.fromJson(res);
+        },
+      );
   Future<dynamic> getNews() async {
     var res = await http.get(
       'https://newsapi.org/v2/top-headlines?country=us&apiKey=595a430e1e364be4952d4ceba47f6db1',
