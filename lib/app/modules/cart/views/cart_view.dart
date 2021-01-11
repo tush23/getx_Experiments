@@ -18,7 +18,20 @@ class CartView extends GetView<NewscontrollerController> {
       ),
       body: Center(
         child: controller.obx(
-            (state) => Text(controller.data.value.articles[0].title ?? ''),
+            (state) => Column(
+                  children: [
+                    Image.network(controller.data.value.articles[0].urlToImage),
+                    Text(controller.data.value.articles[0].title ?? '',
+                        style: TextStyle(fontSize: 24)),
+                    Text(
+                      controller.data.value.articles[0].description ?? '',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                    Text(controller.data.value.articles[0].author ?? '',
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold)),
+                  ],
+                ),
             onError: (error) => Text('Somthing went wrong $error')),
         // child: Obx(() => Text(
         //       _newController.data.value.articles[0].author.toString(),
