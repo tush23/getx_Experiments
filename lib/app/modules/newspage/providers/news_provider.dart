@@ -1,10 +1,7 @@
-import 'dart:convert';
-import 'dart:io';
 
 import 'package:get/get.dart';
 
 import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
-import 'package:http/http.dart' as http;
 
 class NewsProvider extends GetConnect {
   String url =
@@ -49,7 +46,7 @@ class NewsProvider extends GetConnect {
 //   //   return data;
 //   //   // var data= News.fromJson(json.decode(key.body));
 //   // }
-  _newsDecoder(res) => News.fromJson(res);
+  // _newsDecoder(res) => News.fromJson(res);
 
   Future<Response<News>> getNewsData() async => get(
         'https://newsapi.org/v2/top-headlines?country=us&apiKey=595a430e1e364be4952d4ceba47f6db1',
@@ -59,15 +56,15 @@ class NewsProvider extends GetConnect {
           return News.fromJson(res);
         },
       );
-  Future<News> getNews() async {
-    var res = await http.get(
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=595a430e1e364be4952d4ceba47f6db1',
-    );
-    print('resBody---${res.body}');
-    var data = News.fromJson(json.decode(res.body));
-    print(data.toJson());
-    return data;
-  }
+  // Future<News> getNews() async {
+  //   var res = await http.get(
+  //     'https://newsapi.org/v2/top-headlines?country=us&apiKey=595a430e1e364be4952d4ceba47f6db1',
+  //   );
+  //   print('resBody---${res.body}');
+  //   var data = News.fromJson(json.decode(res.body));
+  //   print(data.toJson());
+  //   return data;
+  // }
 
   Future<Response<News>> getWithConnectNews() async => await get(url);
   Future<Response> deleteNews(int id) async => await delete('news/$id');
