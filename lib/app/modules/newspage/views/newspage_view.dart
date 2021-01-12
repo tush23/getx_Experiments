@@ -23,7 +23,16 @@ class NewsPageView extends GetView<NewspageController> {
                       controller.data.value.articles.length,
                       (index) => articelCard(index)),
                 ),
-            onError: (error) => Text('Somthing went wrong $error')),
+            onError: (error) => Column(
+                  children: [
+                    Text('Somthing went wrong $error'),
+                    FlatButton(
+                      onPressed: controller.getNewData,
+                      child: Text('Retry'),
+                      color: Colors.amber,
+                    )
+                  ],
+                )),
         // child: Obx(() => Text(
         //       _newController.data.value.articles[0].author.toString(),
         //       style: TextStyle(fontSize: 20),

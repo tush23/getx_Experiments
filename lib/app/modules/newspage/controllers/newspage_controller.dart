@@ -22,6 +22,7 @@ class NewspageController extends GetxController with StateMixin<News> {
   //   _newProvider.getNewsData().then((value) => data.value = value);
   // }
   void getNewData() {
+    change(null, status: RxStatus.loading());
     _newProvider.getNewsData().then((value) {
       print('-----getNewsDataCalled-------');
       change(value.body, status: RxStatus.success());

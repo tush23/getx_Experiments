@@ -1,11 +1,13 @@
+import 'dart:convert';
+import 'dart:io';
 
 import 'package:get/get.dart';
 
 import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
 
 class NewsProvider extends GetConnect {
-  String url =
-      'https://newsapi.org/v2/top-headlines?country=us&apiKey=595a430e1e364be4952d4ceba47f6db1';
+  // String url =
+  //     'https://newsapi.org/v2/top-headlines?country=us&apiKey=595a430e1e364be4952d4ceba47f6db1';
   @override
   void onInit() {
     // httpClient.addRequestModifier((request) {
@@ -66,6 +68,6 @@ class NewsProvider extends GetConnect {
   //   return data;
   // }
 
-  Future<Response<News>> getWithConnectNews() async => await get(url);
-  Future<Response> deleteNews(int id) async => await delete('news/$id');
+  // Future<Response<News>> getWithConnectNews() async => await get(url);
+  // Future<Response> deleteNews(int id) async => await delete('news/$id');
 }
