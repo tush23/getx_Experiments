@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:getx_cli/app/modules/home/controllers/home_controller.dart';
 import 'package:getx_cli/app/routes/app_pages.dart';
 

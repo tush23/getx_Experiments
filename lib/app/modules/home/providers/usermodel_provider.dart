@@ -1,5 +1,4 @@
 import 'package:get/get.dart';
-
 import 'package:getx_cli/app/modules/home/usermodel_model.dart';
 
 class UsermodelProvider extends GetConnect {
