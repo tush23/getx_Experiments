@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:getx_cli/app/modules/cart/controllers/newscontroller_controller.dart';
 
 class CartView extends GetView<NewscontrollerController> {

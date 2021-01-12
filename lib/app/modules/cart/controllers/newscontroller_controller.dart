@@ -3,8 +3,6 @@ import 'package:getx_cli/app/modules/cart/providers/news_provider.dart';
 import '../news_model.dart';
 
 class NewscontrollerController extends GetxController with StateMixin<News> {
-  // ignore: todo
-  //TODO: Implement NewscontrollerController
 
   var _newProvider = NewsProvider();
   var data = News().obs;
@@ -15,12 +13,6 @@ class NewscontrollerController extends GetxController with StateMixin<News> {
     super.onInit();
     getNewData();
   }
-
-  @override
-  void onReady() {}
-  @override
-  void onClose() {}
-  void increment() => count.value++;
 
   void getNew() async {
     print('NewsController Called');
