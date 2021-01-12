@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 
-import 'package:getx_cli/app/modules/cart/controllers/cart_controller.dart';
 import 'package:getx_cli/app/modules/cart/controllers/newscontroller_controller.dart';
 
 class CartView extends GetView<NewscontrollerController> {
@@ -10,7 +9,7 @@ class CartView extends GetView<NewscontrollerController> {
   Widget build(BuildContext context) {
     // _newController.getNew();
     // _newController.getNewData();
-    controller.getNewData();
+    // controller.getNewData();
     return Scaffold(
       appBar: AppBar(
         title: Text('CartView'),

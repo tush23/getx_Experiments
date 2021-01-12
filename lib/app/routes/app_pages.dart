@@ -7,6 +7,8 @@ import 'package:getx_cli/app/modules/home/views/home_view.dart';
 import 'package:getx_cli/app/modules/login/bindings/login_binding.dart';
 import 'package:getx_cli/app/modules/login/views/login_view.dart';
 import 'package:getx_cli/app/modules/profile/bindings/profile_binding.dart';
+import 'package:getx_cli/app/modules/profile/bindings/profile_binding.dart';
+import 'package:getx_cli/app/modules/profile/views/profile_view.dart';
 import 'package:getx_cli/app/modules/profile/views/profile_view.dart';
 import 'package:getx_cli/app/modules/wishlist/bindings/wishlist_binding.dart';
 import 'package:getx_cli/app/modules/wishlist/views/wishlist_view.dart';
@@ -31,6 +33,13 @@ class AppPages {
       name: _Paths.PROFILE,
       page: () => ProfileView(),
       binding: ProfileBinding(),
+      children: [
+        GetPage(
+          name: _Paths.PROFILE,
+          page: () => ProfileView(),
+          binding: ProfileBinding(),
+        ),
+      ],
     ),
     GetPage(
       name: _Paths.CART,
