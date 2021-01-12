@@ -6,12 +6,8 @@ import 'package:getx_cli/app/modules/home/bindings/home_binding.dart';
 import 'package:getx_cli/app/modules/home/views/home_view.dart';
 import 'package:getx_cli/app/modules/login/bindings/login_binding.dart';
 import 'package:getx_cli/app/modules/login/views/login_view.dart';
-import 'package:getx_cli/app/modules/profile/bindings/profile_binding.dart';
-import 'package:getx_cli/app/modules/profile/bindings/profile_binding.dart';
-import 'package:getx_cli/app/modules/profile/views/profile_view.dart';
-import 'package:getx_cli/app/modules/profile/views/profile_view.dart';
-import 'package:getx_cli/app/modules/wishlist/bindings/wishlist_binding.dart';
-import 'package:getx_cli/app/modules/wishlist/views/wishlist_view.dart';
+// import 'package:getx_cli/app/modules/wishlist/bindings/wishlist_binding.dart';
+// import 'package:getx_cli/app/modules/wishlist/views/wishlist_view.dart';
 
 part 'app_routes.dart';
 
@@ -29,27 +25,16 @@ class AppPages {
       page: () => LoginView(),
       binding: LoginBinding(),
     ),
-    GetPage(
-      name: _Paths.PROFILE,
-      page: () => ProfileView(),
-      binding: ProfileBinding(),
-      children: [
-        GetPage(
-          name: _Paths.PROFILE,
-          page: () => ProfileView(),
-          binding: ProfileBinding(),
-        ),
-      ],
-    ),
+  
     GetPage(
       name: _Paths.CART,
       page: () => CartView(),
       binding: CartBinding(),
     ),
-    GetPage(
-      name: _Paths.WISHLIST,
-      page: () => WishlistView(),
-      binding: WishlistBinding(),
-    ),
+    // GetPage(
+    //   name: _Paths.WISHLIST,
+    //   page: () => WishlistView(),
+    //   binding: WishlistBinding(),
+    // ),
   ];
 }

@@ -13,8 +13,5 @@ abstract class Routes {
 abstract class _Paths {
   static const HOME = '/home';
   static const LOGIN = '/login';
-  static const PROFILE = '/profile';
   static const CART = '/cart';
-  static const WISHLIST = '/wishlist';
-  // static const PROFILE = '/profile';
 }
