@@ -19,8 +19,9 @@ class HomeView extends GetView<HomeController> {
               style: TextStyle(fontSize: 20),
             ),
             FlatButton(
-                onPressed: () => Get.toNamed(Routes.CART),
-                child: Text("Cart GOTOT"))
+                color: Colors.amber,
+                onPressed: () => Get.toNamed(Routes.NEWSPAGE),
+                child: Text("Go to New Page"))
           ],
         ),
       ),

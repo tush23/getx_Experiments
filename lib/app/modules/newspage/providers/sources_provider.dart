@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 
-import 'package:getx_cli/app/modules/cart/sources_model.dart';
+import 'package:getx_cli/app/modules/newspage/model/sources_model.dart';
 
 class SourcesProvider extends GetConnect {
   @override

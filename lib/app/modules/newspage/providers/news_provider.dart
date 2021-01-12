@@ -3,7 +3,7 @@ import 'dart:io';
 
 import 'package:get/get.dart';
 
-import 'package:getx_cli/app/modules/cart/news_model.dart';
+import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
 import 'package:http/http.dart' as http;
 
 class NewsProvider extends GetConnect {

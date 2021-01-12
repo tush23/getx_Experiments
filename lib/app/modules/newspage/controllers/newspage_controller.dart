@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
-import 'package:getx_cli/app/modules/cart/providers/news_provider.dart';
-import '../news_model.dart';
+import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
+import 'package:getx_cli/app/modules/newspage/providers/news_provider.dart';
 
-class NewscontrollerController extends GetxController with StateMixin<News> {
-
-  var _newProvider = NewsProvider();
+class NewspageController extends GetxController with StateMixin<News> {
+   var _newProvider = NewsProvider();
   var data = News().obs;
   final count = 0.obs;
   
