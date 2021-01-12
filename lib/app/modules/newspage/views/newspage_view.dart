@@ -16,6 +16,7 @@ class NewsPageView extends GetView<NewspageController> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
+      
         child: controller.obx(
             (state) => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -23,15 +24,18 @@ class NewsPageView extends GetView<NewspageController> {
                       controller.data.value.articles.length,
                       (index) => articelCard(index)),
                 ),
-            onError: (error) => Column(
-                  children: [
-                    Text('Somthing went wrong $error'),
-                    FlatButton(
-                      onPressed: controller.getNewData,
-                      child: Text('Retry'),
-                      color: Colors.amber,
-                    )
-                  ],
+            onError: (error) => Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text('Somthing went wrong $error'),
+                      FlatButton(
+                        onPressed: controller.getNewData,
+                        child: Text('Retry'),
+                        color: Colors.amber,
+                      )
+                    ],
+                  ),
                 )),
         // child: Obx(() => Text(
         //       _newController.data.value.articles[0].author.toString(),
