@@ -7,8 +7,7 @@ import 'package:getx_cli/app/modules/newspage/controllers/newspage_controller.da
 class NewsPageView extends GetView<NewspageController> {
   @override
   Widget build(BuildContext context) {
-    // _newController.getNew();
-    // _newController.getNewData();
+  
     controller.getNewData();
     return Scaffold(
       appBar: AppBar(
