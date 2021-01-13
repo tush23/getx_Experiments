@@ -3,6 +3,7 @@ import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
 import 'package:getx_cli/app/modules/newspage/providers/news_provider.dart';
 
 class NewspageController extends GetxController with StateMixin<News> {
+  
   var _newProvider = NewsProvider();
   var data = News().obs;
   final count = 0.obs;

@@ -67,7 +67,4 @@ class NewsProvider extends GetConnect {
   //   print(data.toJson());
   //   return data;
   // }
-
-  // Future<Response<News>> getWithConnectNews() async => await get(url);
-  // Future<Response> deleteNews(int id) async => await delete('news/$id');
 }
