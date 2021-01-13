@@ -1,9 +1,11 @@
 import 'package:get/get.dart';
+
 import 'package:getx_cli/app/modules/home/bindings/home_binding.dart';
 import 'package:getx_cli/app/modules/home/views/home_view.dart';
+import 'package:getx_cli/app/modules/new_page/bindings/new_page_binding.dart';
+import 'package:getx_cli/app/modules/new_page/views/new_page_view.dart';
 import 'package:getx_cli/app/modules/newspage/bindings/newspage_binding.dart';
 import 'package:getx_cli/app/modules/newspage/views/newspage_view.dart';
-
 
 part 'app_routes.dart';
 
@@ -16,13 +18,15 @@ class AppPages {
       page: () => HomeView(),
       binding: HomeBinding(),
     ),
-   
-
     GetPage(
       name: _Paths.NEWSPAGE,
       page: () => NewsPageView(),
       binding: NewspageBinding(),
     ),
-    
+    GetPage(
+      name: _Paths.NEW_PAGE,
+      page: () => NewPageView(),
+      binding: NewPageBinding(),
+    ),
   ];
 }
