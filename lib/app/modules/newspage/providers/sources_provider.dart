@@ -5,7 +5,7 @@ class SourcesProvider extends GetConnect {
   @override
   void onInit() {
     httpClient.defaultDecoder = (map) => Sources.fromJson(map);
-    httpClient.baseUrl = 'YOUR-API-URL';
+    // httpClient.baseUrl = 'YOUR-API-URL';
   }
 
   Future<Response<Sources>> getSources(int id) async =>
