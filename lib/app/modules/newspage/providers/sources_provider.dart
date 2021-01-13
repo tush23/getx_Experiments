@@ -11,7 +11,7 @@ class SourcesProvider extends GetConnect {
 
   Future<Response<Sources>> getSources(int id) async =>
       await get('sources/$id');
-  Future<Response<Sources>> postSources(Sources sources) async =>
-      await post('sources', sources);
-  Future<Response> deleteSources(int id) async => await delete('sources/$id');
+  // Future<Response<Sources>> postSources(Sources sources) async =>
+  //     await post('sources', sources);
+  // Future<Response> deleteSources(int id) async => await delete('sources/$id');
 }

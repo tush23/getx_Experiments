@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-
 import 'package:getx_cli/app/modules/newspage/controllers/newspage_controller.dart';
-
 class NewsPageView extends GetView<NewspageController> {
   @override
   Widget build(BuildContext context) {
