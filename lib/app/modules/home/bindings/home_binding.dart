@@ -5,9 +5,6 @@ class HomeBinding extends Bindings {
   @override
   void dependencies() {
     print('dependencies--injected Home');
-    // Get.lazyPut<NewscontrollerController>(
-    //   () => NewscontrollerController(),
-    // );
     Get.lazyPut<HomeController>(
       () => HomeController(),
     );

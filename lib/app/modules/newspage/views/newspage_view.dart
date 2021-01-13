@@ -56,6 +56,11 @@ class NewsPageView extends GetView<NewspageController> {
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         SizedBox(
           height: 5,
+        ),
+        Text(controller.data.value.articles[i].source ?? '',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        SizedBox(
+          height: 5,
         )
       ],
     );
