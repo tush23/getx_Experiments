@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-import 'package:getx_cli/app/modules/home/bindings/home_binding.dart';
 import 'package:getx_cli/app/modules/home/controllers/home_controller.dart';
 import 'package:getx_cli/app/modules/home/views/home_view.dart';
 import 'package:getx_cli/app/modules/new_page/bindings/new_page_binding.dart';
