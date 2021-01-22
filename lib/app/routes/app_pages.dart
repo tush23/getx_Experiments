@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import 'package:getx_cli/app/modules/categories/bindings/categories_binding.dart';
+import 'package:getx_cli/app/modules/categories/views/categories_view.dart';
 import 'package:getx_cli/app/modules/home/controllers/home_controller.dart';
 import 'package:getx_cli/app/modules/home/views/home_view.dart';
 import 'package:getx_cli/app/modules/new_page/bindings/new_page_binding.dart';
@@ -16,9 +18,11 @@ class AppPages {
     GetPage(
       name: _Paths.HOME,
       page: () => HomeView(),
-      
+
       //this will create single instance and dispose just after use
-      binding: BindingsBuilder.put(() => HomeController(),),
+      binding: BindingsBuilder.put(
+        () => HomeController(),
+      ),
     ),
     GetPage(
       name: _Paths.NEWSPAGE,
@@ -29,6 +33,11 @@ class AppPages {
       name: _Paths.NEW_PAGE,
       page: () => NewPageView(),
       binding: NewPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.CATEGORIES,
+      page: () => CategoriesView(),
+      binding: CategoriesBinding(),
     ),
   ];
 }
