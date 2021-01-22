@@ -1,6 +1,5 @@
 
 import 'package:get/get.dart';
-
 import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
 
 class NewsProvider extends GetConnect {
