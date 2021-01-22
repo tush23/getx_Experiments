@@ -8,7 +8,7 @@ class CategoriesController extends GetxController {
   }
 
   @override
-  void onReady() {
+  void onReady() { 
     super.onReady();
   }
 
