@@ -46,8 +46,26 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.network(articles.urlToImage ??
-            'https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg'),
+        Image.network(articles.urlToImage,
+            width: double.infinity,
+            height: 200,
+          
+            fit: BoxFit.fill, loadingBuilder: (BuildContext context,
+                Widget child, ImageChunkEvent loadingProgress) {
+          if (loadingProgress == null) return child;
+          return Container(
+            height: 200,
+            width: double.infinity,
+            child: Center(
+              child: CircularProgressIndicator(
+                value: loadingProgress.expectedTotalBytes != null
+                    ? loadingProgress.cumulativeBytesLoaded /
+                        loadingProgress.expectedTotalBytes
+                    : null,
+              ),
+            ),
+          );
+        }),
         Text(articles.title ?? '', style: TextStyle(fontSize: 20)),
         Text(
           articles.description ?? '',
