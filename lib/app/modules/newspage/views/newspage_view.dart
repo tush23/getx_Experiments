@@ -13,32 +13,34 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
         title: Text('News'),
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: controller.obx(
-            (state) => Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: List<Widget>.generate(state.articles.length,
-                      (index) => articelCard(state.articles[index])),
-                ),
-            onError: (error) => Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Somthing went wrong $error'),
-                      FlatButton(
-                        onPressed: controller.getNews,
-                        child: Text('Retry'),
-                        color: Colors.amber,
-                      )
-                    ],
+      body: controller.obx(
+          (state) => ListView.separated(
+                itemCount: state.articles.length,
+                shrinkWrap: true,
+                itemBuilder: (ctx, i) => articelCard(state.articles[i]),
+                separatorBuilder: (ctx, i) => Container(
+                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                  child: Divider(
+                    color: Colors.black,
+                    height: 2,
+                    thickness: 2,
                   ),
                 ),
-            onLoading: Center(child: CircularProgressIndicator())),
-        // child: Obx(() => Text(
-        //       _newController.data.value.articles[0].author.toString(),
-        //       style: TextStyle(fontSize: 20),
-        //     )),
-      ),
+              ),
+          onError: (error) => Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text('Somthing went wrong $error'),
+                    FlatButton(
+                      onPressed: controller.getNews,
+                      child: Text('Retry'),
+                      color: Colors.amber,
+                    )
+                  ],
+                ),
+              ),
+          onLoading: Center(child: CircularProgressIndicator())),
     );
   }
 
@@ -46,10 +48,15 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
+        // FadeInImage(
+        //   placeholder: NetworkImage(
+        //       'https://reactnativecode.com/wp-content/uploads/2018/02/Default_Image_Thumbnail.png'),
+        //   image: NetworkImage(articles.urlToImage),
+        // ),
         Image.network(articles.urlToImage,
             width: double.infinity,
             height: 200,
-          
+            repeat: ImageRepeat.repeat,
             fit: BoxFit.fill, loadingBuilder: (BuildContext context,
                 Widget child, ImageChunkEvent loadingProgress) {
           if (loadingProgress == null) return child;
@@ -66,21 +73,19 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
             ),
           );
         }),
-        Text(articles.title ?? '', style: TextStyle(fontSize: 20)),
+        Text(articles.title ?? '',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         Text(
           articles.description ?? '',
-          style: TextStyle(fontSize: 17),
+          style: TextStyle(fontSize: 16),
         ),
         Text(articles.author ?? '',
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        SizedBox(
-          height: 5,
-        ),
+            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+        // SizedBox(
+        //   height: 5,
+        // ),
         Text(articles.source.name ?? '',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        SizedBox(
-          height: 5,
-        )
       ],
     );
   }
