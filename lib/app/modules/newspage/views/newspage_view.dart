@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_cli/app/modules/newspage/controllers/newpagecon_with_api_provider.dart';
+import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
 
 class NewsPageView extends GetView<NewsControllerWithApiProviders> {
   @override
@@ -16,8 +17,8 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
         child: controller.obx(
             (state) => Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
-                  children: List<Widget>.generate(
-                      state.articles.length, (index) => articelCard(index)),
+                  children: List<Widget>.generate(state.articles.length,
+                      (index) => articelCard(state.articles[index])),
                 ),
             onError: (error) => Center(
                   child: Column(
@@ -41,27 +42,27 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
     );
   }
 
-  Widget articelCard(int i) {
+  Widget articelCard(Articles articles) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Image.network(controller.value.articles[i].urlToImage ??
+        Image.network(articles.urlToImage ??
             'https://image.shutterstock.com/image-vector/default-ui-image-placeholder-wireframes-260nw-1037719192.jpg'),
-        Text(controller.value.articles[i].title ?? '',
-            style: TextStyle(fontSize: 20)),
+        Text(articles.title ?? '', style: TextStyle(fontSize: 20)),
         Text(
-          controller.value.articles[i].description ?? '',
+          articles.description ?? '',
           style: TextStyle(fontSize: 17),
         ),
-        Text(controller.value.articles[i].author ?? '',
+        Text(articles.author ?? '',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         SizedBox(
           height: 5,
         ),
-        // Text(controller.value.articles[i].source ?? '',
-        //     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
-        // SizedBox(
-        //   height: 5,
-        // )
+        Text(articles.source.name ?? '',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+        SizedBox(
+          height: 5,
+        )
       ],
     );
   }

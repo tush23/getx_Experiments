@@ -2,7 +2,8 @@ class News {
   String status;
   int totalResults;
   List<Articles> articles;
-
+  String message;
+  News.onError({this.message});
   News({this.status, this.totalResults, this.articles});
 
   News.fromJson(Map<String, dynamic> json) {
