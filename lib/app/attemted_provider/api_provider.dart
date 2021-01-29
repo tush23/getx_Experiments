@@ -4,14 +4,15 @@ import 'package:getx_cli/app/attemted_provider/base_api_services.dart';
 import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
 
 class ApiProvider extends GetConnect with BaseApiServices {
-  static const String BASE_URL =
-      'https://newsapi.org/v2/top-headlines?country=us';
+  static const String BASE_URL = 'https://newsapi.org/v2/';
 
   @override
   void onInit() {
     httpClient.baseUrl = BASE_URL;
     httpClient.timeout = Duration(seconds: 5);
+    // httpClient.
     httpClient.addResponseModifier((request, response) {
+      request.headers['apikey'] = '595a430e1e364be4952d4ceba47f6db1';
       debugPrint(
         '\n╔══════════════════════════ Response ══════════════════════════\n'
         '╟ REQUEST ║ ${request.method.toUpperCase()}\n'
@@ -30,9 +31,8 @@ class ApiProvider extends GetConnect with BaseApiServices {
 
   @override
   Future<Response> login(Map<String, String> loginMap) async {
-    final response = await post(
-      '&apiKey=595a430e1e364be4952d4ceba47f6db1',
-      loginMap,
+    final response = await get(
+      '',
       decoder: (data) => News.fromJson(data),
     );
     return response;
@@ -41,7 +41,17 @@ class ApiProvider extends GetConnect with BaseApiServices {
   @override
   Future<Response> getNews() async {
     final response = await get(
-      '&apiKey=595a430e1e364be4952d4ceba47f6db1',
+      'top-headlines?country=in&apikey=595a430e1e364be4952d4ceba47f6db1',
+      decoder: (data) => News.fromJson(data),
+    );
+    // print(response.statusCode);
+    return response;
+  }
+
+  @override
+  Future<Response> getEverthing() async {
+    final response = await get(
+      '&',
       decoder: (data) => News.fromJson(data),
     );
     return response;

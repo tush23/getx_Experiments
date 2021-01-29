@@ -31,7 +31,7 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Somthing went wrong $error'),
+                    Text(error.toString()),
                     FlatButton(
                       onPressed: controller.getNews,
                       child: Text('Retry'),
@@ -54,25 +54,33 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
         //   image: NetworkImage(articles.urlToImage),
         // ),
         Image.network(articles.urlToImage,
+            errorBuilder: (context, ob, stacktrece) => Container(
+                  height: 200,
+                  width: double.infinity,
+                  child: Center(
+                    child: Icon(Icons.error),
+                  ),
+                ),
             width: double.infinity,
             height: 200,
             repeat: ImageRepeat.repeat,
-            fit: BoxFit.fill, loadingBuilder: (BuildContext context,
-                Widget child, ImageChunkEvent loadingProgress) {
-          if (loadingProgress == null) return child;
-          return Container(
-            height: 200,
-            width: double.infinity,
-            child: Center(
-              child: CircularProgressIndicator(
-                value: loadingProgress.expectedTotalBytes != null
-                    ? loadingProgress.cumulativeBytesLoaded /
-                        loadingProgress.expectedTotalBytes
-                    : null,
-              ),
-            ),
-          );
-        }),
+            fit: BoxFit.fill,
+            loadingBuilder: (BuildContext context, Widget child,
+                ImageChunkEvent loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Container(
+                height: 200,
+                width: double.infinity,
+                child: Center(
+                  child: CircularProgressIndicator(
+                    value: loadingProgress.expectedTotalBytes != null
+                        ? loadingProgress.cumulativeBytesLoaded /
+                            loadingProgress.expectedTotalBytes
+                        : null,
+                  ),
+                ),
+              );
+            }),
         Text(articles.title ?? '',
             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
         Text(

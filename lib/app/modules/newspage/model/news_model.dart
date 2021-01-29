@@ -7,6 +7,7 @@ class News {
   News({this.status, this.totalResults, this.articles});
 
   News.fromJson(Map<String, dynamic> json) {
+    message = json.containsKey('message') ? json['message'] : "Success";
     status = json['status'];
     totalResults = json['totalResults'];
     if (json['articles'] != null) {
@@ -21,6 +22,8 @@ class News {
     final Map<String, dynamic> data = Map<String, dynamic>();
     data['status'] = this.status;
     data['totalResults'] = this.totalResults;
+    data['message'] = this.message;
+
     if (this.articles != null) {
       data['articles'] = this.articles.map((v) => v.toJson()).toList();
     }
@@ -54,7 +57,7 @@ class Articles {
     title = json['title'];
     description = json['description'];
     url = json['url'];
-    urlToImage = json['urlToImage'];
+    urlToImage = json['urlToImage']??'';
     publishedAt = json['publishedAt'];
     content = json['content'];
   }
