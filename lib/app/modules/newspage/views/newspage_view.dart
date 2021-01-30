@@ -14,19 +14,21 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
         centerTitle: true,
       ),
       body: controller.obx(
-          (state) => ListView.separated(
-                itemCount: state.articles.length,
-                shrinkWrap: true,
-                itemBuilder: (ctx, i) => articelCard(state.articles[i]),
-                separatorBuilder: (ctx, i) => Container(
-                  padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
-                  child: Divider(
-                    color: Colors.black,
-                    height: 2,
-                    thickness: 2,
+          (state) => state.articles.isEmpty
+              ? Center(child: Text('No Articles'))
+              : ListView.separated(
+                  itemCount: state.articles.length,
+                  shrinkWrap: true,
+                  itemBuilder: (ctx, i) => articelCard(state.articles[i]),
+                  separatorBuilder: (ctx, i) => Container(
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+                    child: Divider(
+                      color: Colors.black,
+                      height: 2,
+                      thickness: 2,
+                    ),
                   ),
                 ),
-              ),
           onError: (error) => Center(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
