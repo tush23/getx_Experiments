@@ -51,7 +51,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
   @override
   Future<Response> getEverthing() async {
     final response = await get(
-      '&',
+      '& ',
       decoder: (data) => News.fromJson(data),
     );
     return response;
