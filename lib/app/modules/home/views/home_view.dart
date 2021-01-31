@@ -21,7 +21,11 @@ class HomeView extends GetView<HomeController> {
             FlatButton(
                 color: Colors.amber,
                 onPressed: () => Get.toNamed(Routes.NEWSPAGE),
-                child: Text("Go to New Page"))
+                child: Text("Go to News Page")),
+            FlatButton(
+                color: Colors.amber,
+                onPressed: () => Get.toNamed(Routes.SEARCH),
+                child: Text("Go to Search Page"))
           ],
         ),
       ),
