@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:getx_cli/app/attemted_provider/api_provider.dart';
-import 'package:getx_cli/app/modules/newspage/model/news_model.dart';
+import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
 
 class NewsControllerWithApiProviders extends GetxController
     with StateMixin<News> {
@@ -17,8 +17,8 @@ class NewsControllerWithApiProviders extends GetxController
   void getNews() {
     print('---------loginCalled');
     _apiProvider.getNews().then((value) {
-      News _news = value.body;
-      print('--------------------${_news.message}');
+      // News _news = value.body;
+      print('--------------------$value');
       change(null, status: RxStatus.loading());
       if (value.hasError)
         change(null, status: RxStatus.error(value.body.message));

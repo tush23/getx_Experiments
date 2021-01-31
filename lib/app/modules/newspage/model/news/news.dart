@@ -9,11 +9,13 @@ class News {
   String status;
   int totalResults;
   List<Articles> articles;
+  String message;
 
   News({
     this.status,
     this.totalResults,
     this.articles,
+    this.message
   });
 
   factory News.fromJson(Map<String, dynamic> json) => _$NewsFromJson(json);

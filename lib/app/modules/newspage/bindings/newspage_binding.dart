@@ -7,11 +7,11 @@ import 'package:getx_cli/app/modules/newspage/controllers/newspage_controller.da
 class NewspageBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<NewspageController>(
-      () => NewspageController(),
-    );
+    // Get.lazyPut<NewspageController>(
+    //   () => NewspageController(),
+    // );
     Get.lazyPut<ApiProvider>(() => ApiProvider());
-        Get.lazyPut<NewsControllerWithApiProviders>(()=>NewsControllerWithApiProviders());
-
+    Get.lazyPut<NewsControllerWithApiProviders>(
+        () => NewsControllerWithApiProviders());
   }
 }
