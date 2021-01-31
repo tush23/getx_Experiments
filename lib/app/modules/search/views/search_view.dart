@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:getx_cli/app/customs/article_view.dart';
-
 import 'package:getx_cli/app/modules/search/controllers/search_controller.dart';
 
 class SearchView extends GetView<SearchController> {
