@@ -1,11 +1,7 @@
 import 'package:get/get.dart';
 
-import 'package:getx_cli/app/modules/categories/bindings/categories_binding.dart';
-import 'package:getx_cli/app/modules/categories/views/categories_view.dart';
 import 'package:getx_cli/app/modules/home/controllers/home_controller.dart';
 import 'package:getx_cli/app/modules/home/views/home_view.dart';
-import 'package:getx_cli/app/modules/new_page/bindings/new_page_binding.dart';
-import 'package:getx_cli/app/modules/new_page/views/new_page_view.dart';
 import 'package:getx_cli/app/modules/newspage/bindings/newspage_binding.dart';
 import 'package:getx_cli/app/modules/newspage/views/newspage_view.dart';
 
