@@ -29,15 +29,6 @@ class AppPages {
       page: () => NewsPageView(),
       binding: NewspageBinding(),
     ),
-    GetPage(
-      name: _Paths.NEW_PAGE,
-      page: () => NewPageView(),
-      binding: NewPageBinding(),
-    ),
-    GetPage(
-      name: _Paths.CATEGORIES,
-      page: () => CategoriesView(),
-      binding: CategoriesBinding(),
-    ),
+
   ];
 }
