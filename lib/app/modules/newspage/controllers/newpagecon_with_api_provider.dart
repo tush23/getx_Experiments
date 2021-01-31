@@ -23,4 +23,13 @@ class NewsControllerWithApiProviders extends GetxController
         change(value.body, status: RxStatus.success());
     });
   }
+  void getEverything(String q) {
+    _apiProvider.getEverthing(q).then((value) {
+      change(null, status: RxStatus.loading());
+      if (value.hasError)
+        change(null, status: RxStatus.error(value.body.message));
+      if (value.statusCode == 200)
+        change(value.body, status: RxStatus.success());
+    });
+  }
 }
