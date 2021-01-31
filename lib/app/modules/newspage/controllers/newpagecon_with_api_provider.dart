@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:getx_cli/app/attemted_provider/api_provider.dart';
+import 'package:getx_cli/app/provider/api_provider.dart';
 import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
 
 class NewsControllerWithApiProviders extends GetxController
