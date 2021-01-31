@@ -15,10 +15,7 @@ class NewsControllerWithApiProviders extends GetxController
   }
 
   void getNews() {
-    print('---------loginCalled');
     _apiProvider.getNews().then((value) {
-      // News _news = value.body;
-      print('--------------------$value');
       change(null, status: RxStatus.loading());
       if (value.hasError)
         change(null, status: RxStatus.error(value.body.message));

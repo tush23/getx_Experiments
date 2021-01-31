@@ -4,15 +4,16 @@ import 'package:getx_cli/app/provider/base_api_services.dart';
 import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
 
 class ApiProvider extends GetConnect with BaseApiServices {
-  static const String BASE_URL = 'https://newsapi.org/v2/';
+  static const String _BASE_URL = 'https://newsapi.org/v2/';
+  static const String _API_KEY = '595a430e1e364be4952d4ceba47f6db1';
 
   @override
   void onInit() {
-    httpClient.baseUrl = BASE_URL;
+    httpClient.baseUrl = _BASE_URL;
     httpClient.timeout = Duration(seconds: 5);
     // httpClient.
     httpClient.addResponseModifier((request, response) {
-      request.headers['apikey'] = '595a430e1e364be4952d4ceba47f6db1';
+      // request.headers['apikey'] = '595a430e1e364be4952d4ceba47f6db1';
       debugPrint(
         '\n╔══════════════════════════ Response ══════════════════════════\n'
         '╟ REQUEST ║ ${request.method.toUpperCase()}\n'
@@ -20,7 +21,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
         '╟ Headers: ${request.headers}\n'
         // 'Body: ${request?.bodyBytes?.map((event) => event.asMap().toString()) ?? ''}\n'
         '╟ Status Code: ${response.statusCode}\n'
-        '╟ Data: ${response?.bodyString?.toString() ?? ''}'
+        // '╟ Data: ${response?.bodyString?.toString() ?? ''}'
         '\n╚══════════════════════════ Response ══════════════════════════\n',
         wrapWidth: 1024,
       );
@@ -41,7 +42,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
   @override
   Future<Response> getNews() async {
     final response = await get(
-      'top-headlines?country=in&apikey=595a430e1e364be4952d4ceba47f6db1',
+      'top-headlines?country=in&apikey=$_API_KEY',
       decoder: (data) => News.fromJson(data),
     );
     // print(response.statusCode);
@@ -49,9 +50,9 @@ class ApiProvider extends GetConnect with BaseApiServices {
   }
 
   @override
-  Future<Response> getEverthing() async {
+  Future<Response> getEverthing(String s) async {
     final response = await get(
-      '& ',
+      'everything?q=$s&apiKey=$_API_KEY',
       decoder: (data) => News.fromJson(data),
     );
     return response;
