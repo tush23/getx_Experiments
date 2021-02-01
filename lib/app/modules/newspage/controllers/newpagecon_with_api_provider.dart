@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:getx_cli/app/customs/handler.dart';
 import 'package:getx_cli/app/provider/api_provider.dart';
 import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
 
