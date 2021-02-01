@@ -5,7 +5,7 @@ import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
 
 class ApiProvider extends GetConnect with BaseApiServices {
   static const String _BASE_URL = 'https://newsapi.org/v2/';
-  static const String _API_KEY = '595a430e1e364be4952d4ceba47f6db1';
+  static const String _API_KEY = '95a430e1e364be4952d4ceba47f6db1';
 
   @override
   void onInit() {
@@ -48,6 +48,7 @@ class ApiProvider extends GetConnect with BaseApiServices {
     // print(response.statusCode);
     return response;
   }
+
   @override
   Future<Response> getEverthing(String s) async {
     final response = await get(
