@@ -6,6 +6,6 @@ class HomeBinding extends Bindings {
   void dependencies() {
     Get.lazyPut<HomeController>(
       () => HomeController(),
-    );    
+    );
   }
 }
