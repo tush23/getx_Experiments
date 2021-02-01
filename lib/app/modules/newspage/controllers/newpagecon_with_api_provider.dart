@@ -21,16 +21,16 @@ class NewsControllerWithApiProviders extends GetxController
     //     Animation<double> animation, Animation<double> secondaryAnimation) {
     //   return Text('Loading');
     // });
-    Get.dialog(Handler().loading);
+    Handler().loading();
 
     _apiProvider.getNews().then((value) {
       // change(null, status: RxStatus.loading());
+      Get.back();
       if (value.hasError) {
         change(null, status: RxStatus.error(value.body.message));
-        Handler().error(errorString: value.body.message, retryPressed: onReady);
       }
       if (value.statusCode == 200) {
-        print(Get.isSnackbarOpen);
+        // print(Get.isSnackbarOpen);
         change(value.body, status: RxStatus.success());
       }
     });

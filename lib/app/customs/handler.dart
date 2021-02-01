@@ -10,19 +10,24 @@ class Handler {
 
   Handler._internal();
   // Handler({this.errorString, this.retryPressed});
-  Widget get loading => Center(child: CircularProgressIndicator());
-  Future<Dialog> error(
+  Future<Dialog> loading() =>
+  
+      // Get.dialog(Center(child: CircularProgressIndicator()));
+      // Get.defaultDialog(
+      //     content: Center(child: CircularProgressIndicator()), title: 'Loading');
+
+  Widget error(
           {@required String errorString, @required Function retryPressed}) =>
-      Get.defaultDialog(
-          confirm: FlatButton(
-            child: Text('Retry'),
-            onPressed: retryPressed,
-          ),
-          buttonColor: Colors.amber,
-          onConfirm: () {
-            print('REtry pressed');
-            retryPressed();
-          },
-          content: Text(errorString),
-          title: 'Error');
+      Center(
+        child: Column(
+          children: [
+            Text("------$errorString"),
+            FlatButton(
+              color: Colors.amber,
+              child: Text('retry'),
+              onPressed: retryPressed,
+            )
+          ],
+        ),
+      );
 }
