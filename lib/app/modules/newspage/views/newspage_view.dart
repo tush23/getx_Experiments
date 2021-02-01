@@ -9,11 +9,11 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
     // controller.getNews();
     // controller.;
     return Scaffold(
-      appBar: AppBar(
-        title: Text('News'),
-        centerTitle: true,
-      ),
-      body: controller.obx(
+        appBar: AppBar(
+          title: Text('News'),
+          centerTitle: true,
+        ),
+        body: controller.obx(
           (state) => state.articles.isEmpty
               ? Center(child: Text('No Articles'))
               : ListView.separated(
@@ -29,20 +29,20 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
                     ),
                   ),
                 ),
-          onError: (error) => Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(error.toString()),
-                    FlatButton(
-                      onPressed: controller.getNews,
-                      child: Text('Retry'),
-                      color: Colors.amber,
-                    )
-                  ],
-                ),
-              ),
-          onLoading: Center(child: CircularProgressIndicator())),
-    );
+          // onError: (error) => Center(
+          //       child: Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: [
+          //           Text(error.toString()),
+          //           FlatButton(
+          //             onPressed: controller.getNews,
+          //             child: Text('Retry'),
+          //             color: Colors.amber,
+          //           )
+          //         ],
+          //       ),
+          //     ),
+          // onLoading: Center(child: CircularProgressIndicator())),
+        ));
   }
 }
