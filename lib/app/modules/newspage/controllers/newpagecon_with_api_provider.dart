@@ -3,8 +3,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:getx_cli/app/provider/api_provider.dart';
 import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
 
-class NewsControllerWithApiProviders extends GetxController
-    with StateMixin<News> {
+class NewsControllerWithApiProviders extends GetxController with StateMixin<News> {
   final ApiProvider _apiProvider = Get.find();
 
   @override
