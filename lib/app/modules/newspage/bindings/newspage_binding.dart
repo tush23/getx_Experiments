@@ -8,6 +8,7 @@ class NewspageBinding extends Bindings {
     // Get.lazyPut<NewspageController>(
     //   () => NewspageController(),
     // );
+    Get.lazyPut(() => ApiProvider());
     Get.lazyPut<NewsControllerWithApiProviders>(
         () => NewsControllerWithApiProviders());
   }
