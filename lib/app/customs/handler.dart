@@ -10,11 +10,22 @@ class Handler {
 
   Handler._internal();
   // Handler({this.errorString, this.retryPressed});
-  Future<Dialog> loading() =>
-  
-      // Get.dialog(Center(child: CircularProgressIndicator()));
-      // Get.defaultDialog(
-      //     content: Center(child: CircularProgressIndicator()), title: 'Loading');
+  Future<AlertDialog> loading() => showDialog(
+      child: Center(
+          child: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.white,
+              ),
+              width: 60,
+              height: 60,
+              child: CircularProgressIndicator())),
+      context: Get.context);
+
+  // Get.dialog(Center(child: CircularProgressIndicator()));
+  // Get.defaultDialog(
+  //     content: Center(child: CircularProgressIndicator()), title: 'Loading');
 
   Widget error(
           {@required String errorString, @required Function retryPressed}) =>
