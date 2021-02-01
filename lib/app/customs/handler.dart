@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class Handler {
-
-static final Handler _singleton = Handler._internal();
+  static final Handler _singleton = Handler._internal();
 
   factory Handler() {
     return _singleton;
@@ -12,11 +11,18 @@ static final Handler _singleton = Handler._internal();
   Handler._internal();
   // Handler({this.errorString, this.retryPressed});
   Widget get loading => Center(child: CircularProgressIndicator());
-  Future<Dialog> error({String errorString, Function retryPressed}) =>
+  Future<Dialog> error(
+          {@required String errorString, @required Function retryPressed}) =>
       Get.defaultDialog(
-          confirm: Text('Retry'),
-          onConfirm: retryPressed,
+          confirm: FlatButton(
+            child: Text('Retry'),
+            onPressed: retryPressed,
+          ),
+          buttonColor: Colors.amber,
+          onConfirm: () {
+            print('REtry pressed');
+            retryPressed();
+          },
           content: Text(errorString),
           title: 'Error');
- 
 }
