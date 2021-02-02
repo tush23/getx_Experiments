@@ -48,7 +48,6 @@ class ApiProvider extends GetConnect with BaseApiServices {
     // print(response.statusCode);
     return response;
   }
-
   @override
   Future<Response> getEverthing(String s) async {
     final response = await get(

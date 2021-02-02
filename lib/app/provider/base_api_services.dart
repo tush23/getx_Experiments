@@ -5,5 +5,4 @@ abstract class BaseApiServices  {
     Future<Response> login(Map<String, String> loginMap);
     Future<Response> getNews();
     Future<Response> getEverthing(String s);
-
 }
