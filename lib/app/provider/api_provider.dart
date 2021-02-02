@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_connect/connect.dart';
+import 'package:getx_cli/app/modules/models/with_json_serialized/news.dart';
 import 'package:getx_cli/app/provider/base_api_services.dart';
-import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
 
 class ApiProvider extends GetConnect with BaseApiServices {
   static const String _BASE_URL = 'https://newsapi.org/v2/';

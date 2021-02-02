@@ -1,6 +1,6 @@
 
 import 'package:get/get.dart';
-import 'package:getx_cli/app/modules/newspage/model/news/news.dart';
+import 'package:getx_cli/app/modules/models/with_json_serialized/news.dart';
 
 class NewsProvider extends GetConnect {
   String url =

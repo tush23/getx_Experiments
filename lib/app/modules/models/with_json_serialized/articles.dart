@@ -1,4 +1,4 @@
-import 'package:getx_cli/app/modules/newspage/model/news/source.dart';
+import 'package:getx_cli/app/modules/models/with_json_serialized/source.dart';
 import 'package:json_annotation/json_annotation.dart';
 part 'articles.g.dart';
 

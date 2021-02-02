@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:getx_cli/app/modules/newspage/model/news/articles.dart';
+import 'package:getx_cli/app/modules/models/with_json_serialized/articles.dart';
 
 Widget articelCard(Articles articles) {
   return Column(
