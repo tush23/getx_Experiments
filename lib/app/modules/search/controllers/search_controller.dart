@@ -1,7 +1,6 @@
 import 'package:get/get.dart';
 import 'package:getx_cli/app/modules/models/with_json_serialized/news.dart';
 import 'package:getx_cli/app/provider/api_provider.dart';
-import 'package:getx_cli/app/modules/newspage/model/news/with_json_serialized/articles.dart';
 
 
 class SearchController extends GetxController with StateMixin<News> {
