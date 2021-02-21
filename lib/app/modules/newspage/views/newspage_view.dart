@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_cli/app/customs/article_view.dart';
-import 'package:getx_cli/app/customs/handler.dart';
+
 import 'package:getx_cli/app/modules/newspage/controllers/newpagecon_with_api_provider.dart';
 
 class NewsPageView extends GetView<NewsControllerWithApiProviders> {
@@ -14,6 +14,12 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
           title: Text('News'),
           centerTitle: true,
         ),
+        // body: Column(
+        //   children: [
+        //     Obx(()=>Text(controller.apiProvider.connectionStatus)),
+        //     // FlatButton(onPressed: controller.initConnectivity, child: Text('Hit me'))
+        //   ],
+        // ),
         body: controller.obx(
             (state) => state.articles.isEmpty
                 ? Center(child: Text('No Articles'))
@@ -31,9 +37,11 @@ class NewsPageView extends GetView<NewsControllerWithApiProviders> {
                       ),
                     ),
                   ),
-            onError: (error) => Handler()
-                .error(errorString: error, retryPressed: controller.onReady)
+            // onError: (error) => Handler()
+            //     .error(errorString: error, retryPressed: controller.onReady),
+            // onLoading: Handler().loading()
             // onLoading: Center(child: CircularProgressIndicator())),
-            ));
+            )
+    );
   }
 }

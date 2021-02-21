@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_cli/app/customs/article_view.dart';
+import 'package:getx_cli/app/modules/home/views/home_view.dart';
 import 'package:getx_cli/app/modules/search/controllers/search_controller.dart';
+import 'package:getx_cli/main.dart';
 
 class SearchView extends GetView<SearchController> {
   @override
@@ -18,6 +20,8 @@ class SearchView extends GetView<SearchController> {
               decoration: InputDecoration(hintText: "Search news"),
               onChanged: controller.getEverything,
             ),
+            Text(connectionStatus.value),
+            Text(byValue.value),
             Obx(() => Container(
                   padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
                   color: Colors.blue,

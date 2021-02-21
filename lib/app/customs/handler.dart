@@ -10,35 +10,24 @@ class Handler {
 
   Handler._internal();
   // Handler({this.errorString, this.retryPressed});
+
+
   Future<AlertDialog> loading() => showDialog(
+    barrierDismissible: false,
       child: Center(
           child: Container(
-              padding: EdgeInsets.all(10),
+              padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
                 color: Colors.white,
               ),
               width: 60,
               height: 60,
-              child: CircularProgressIndicator())),
+              child: CircularProgressIndicator(strokeWidth: 1.5,semanticsLabel: "Loadinf",))),
       context: Get.context);
 
-  // Get.dialog(Center(child: CircularProgressIndicator()));
-  // Get.defaultDialog(
-  //     content: Center(child: CircularProgressIndicator()), title: 'Loading');
+  void errorSnackBar(String msg)=>Get.rawSnackbar(snackPosition: SnackPosition.BOTTOM,message: msg,title: 'Error!',duration: Duration(seconds: 3));
+  void noInternetSnackBar()=>Get.rawSnackbar(snackPosition: SnackPosition.BOTTOM,message: "Please check your Internet Connection!",title: 'No Internet');
+  void getInternetSnackBar()=>Get.rawSnackbar(snackPosition: SnackPosition.BOTTOM,message: "Internet connection has been restored",title: 'Internet Restored');
 
-  Widget error(
-          {@required String errorString, @required Function retryPressed}) =>
-      Center(
-        child: Column(
-          children: [
-            Text("------$errorString"),
-            FlatButton(
-              color: Colors.amber,
-              child: Text('retry'),
-              onPressed: retryPressed,
-            )
-          ],
-        ),
-      );
 }

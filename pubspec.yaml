@@ -26,6 +26,10 @@ dependencies:
   # freezed_annotation: ^0.12.0
   get: 3.24.0
   json_annotation: ^3.1.1
+  connectivity: ^2.0.2
+  catcher: ^0.4.1
+
+
 
 dev_dependencies:
   
