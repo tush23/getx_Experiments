@@ -1,10 +1,8 @@
 import 'dart:async';
 
-import 'package:catcher/catcher.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:getx_cli/app/modules/home/views/home_view.dart';
 
 import 'app/routes/app_pages.dart';
 

@@ -20,6 +20,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  http: any
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0

@@ -52,7 +52,7 @@ class NewsControllerWithApiProviders extends GetxController
       }
       if (value.status.isOk) {
         // progressDialog.dismiss();
-        throw Exception('Somthing is not goof -------------');
+        // throw Exception('Somthing is not goof -------------');
 
         change(value.body, status: RxStatus.success());
       }

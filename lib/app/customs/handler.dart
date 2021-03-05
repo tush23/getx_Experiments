@@ -14,7 +14,7 @@ class Handler {
 
   Future<AlertDialog> loading() => showDialog(
     barrierDismissible: false,
-      child: Center(
+      builder:(ctx)=> Center(
           child: Container(
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(

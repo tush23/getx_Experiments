@@ -6,6 +6,8 @@ import 'package:getx_cli/app/modules/newspage/bindings/newspage_binding.dart';
 import 'package:getx_cli/app/modules/newspage/views/newspage_view.dart';
 import 'package:getx_cli/app/modules/search/bindings/search_binding.dart';
 import 'package:getx_cli/app/modules/search/views/search_view.dart';
+import 'package:getx_cli/app/modules/svgtoCutomPaint/bindings/svgto_cutom_paint_binding.dart';
+import 'package:getx_cli/app/modules/svgtoCutomPaint/views/svgto_cutom_paint_view.dart';
 
 part 'app_routes.dart';
 
@@ -31,6 +33,11 @@ class AppPages {
       name: _Paths.SEARCH,
       page: () => SearchView(),
       binding: SearchBinding(),
+    ),
+    GetPage(
+      name: _Paths.SVGTO_CUTOM_PAINT,
+      page: () => SvgtoCutomPaintView(),
+      binding: SvgtoCutomPaintBinding(),
     ),
   ];
 }
