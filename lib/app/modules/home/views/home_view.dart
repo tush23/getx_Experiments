@@ -36,17 +36,22 @@ class HomeView extends GetView<HomeController> {
                 child: Text("Svg toCustom Paint")),
             FlatButton(
                 color: Colors.amber,
+                onPressed: () => Get.toNamed(Routes.SH_TRY),
+                child: Text("SH TRy")),
+            FlatButton(
+                color: Colors.amber,
                 onPressed: () => Get.to(NewTry()),
                 child: Text("Send Data")),
             TextButton(
               style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith<Color>(
                     (Set<MaterialState> states) {
-                  if (states.contains(MaterialState.pressed))
-                    return Colors.red;
+                  if (states.contains(MaterialState.pressed)) return Colors.red;
+                  if (states.contains(MaterialState.hovered)) return Colors.yellow;
                   return null; // Use the component's default.
                 },
               ),),
                 onPressed: () {
+                // Get.changeTheme(ThemeData(fontFamily: Get.asap(() => null))
                   connectionStatus.value = 'Just Globaafaaafafaack32323s';
                   byValue.value = 'Just Global checaafafaaafks323232';
                   // ignore: invalid_use_of_visible_for_testing_member
