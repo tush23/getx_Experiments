@@ -33,7 +33,7 @@ void main() {
   //     debugConfig: debugOptions);
 
   try {
-    runZoned<Future<void>>(
+    runZonedGuarded<Future<void>>(
       () async {
         runApp(
           GetMaterialApp(
@@ -44,7 +44,7 @@ void main() {
           ),
         );
       },
-      onError: (dynamic error, StackTrace stackTrace) {
+       (dynamic error, StackTrace stackTrace) {
         Get.defaultDialog(title: 'Error Accured',middleText: ' Error Info--$error' );
       },
     );
