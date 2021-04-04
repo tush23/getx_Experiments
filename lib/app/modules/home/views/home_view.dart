@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_cli/app/customs/handler.dart';
 import 'package:getx_cli/app/modules/home/controllers/home_controller.dart';
 import 'package:getx_cli/app/newPages/newTry.dart';
 import 'package:getx_cli/app/routes/app_pages.dart';
 import 'package:getx_cli/main.dart';
+
+import 'package:base/base.dart';
+
 
 ValueNotifier<String> byValue = ValueNotifier('_value');
 
@@ -40,7 +44,7 @@ class HomeView extends GetView<HomeController> {
                 child: Text("SH TRy")),
             FlatButton(
                 color: Colors.amber,
-                onPressed: () => Get.to(NewTry()),
+                onPressed: () => Get.to(MyHomePage()),
                 child: Text("Send Data")),
             TextButton(
               style: ButtonStyle(backgroundColor: MaterialStateProperty.resolveWith<Color>(
@@ -51,11 +55,10 @@ class HomeView extends GetView<HomeController> {
                 },
               ),),
                 onPressed: () {
-                // Get.changeTheme(ThemeData(fontFamily: Get.asap(() => null))
-                  connectionStatus.value = 'Just Globaafaaafafaack32323s';
-                  byValue.value = 'Just Global checaafafaaafks323232';
-                  // ignore: invalid_use_of_visible_for_testing_member
-                  byValue.notifyListeners();
+                getCurrentPosition().then((value) {
+                  printInfo(info: value.toString());
+                }).catchError(()=>Get.dialog(exceptionDialogs()));
+                // Get.dialog(noLocationDialog());
                 },
                 child: Text("Just Global checks")),
             Text(connectionStatus.value),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:getx_cli/app/customs/article_view.dart';
+import 'package:getx_cli/app/customs/handler.dart';
 
 import 'package:getx_cli/app/modules/newspage/controllers/newpagecon_with_api_provider.dart';
 

@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,10 +12,9 @@ class Handler {
   Handler._internal();
   // Handler({this.errorString, this.retryPressed});
 
-
   Future<AlertDialog> loading() => showDialog(
-    barrierDismissible: false,
-      builder:(ctx)=> Center(
+      barrierDismissible: false,
+      builder: (ctx) => Center(
           child: Container(
               padding: EdgeInsets.all(15),
               decoration: BoxDecoration(
@@ -23,11 +23,23 @@ class Handler {
               ),
               width: 60,
               height: 60,
-              child: CircularProgressIndicator(strokeWidth: 1.5,semanticsLabel: "Loadinf",))),
+              child: CircularProgressIndicator(
+                strokeWidth: 1.5,
+                semanticsLabel: "Loadinf",
+              ))),
       context: Get.context);
 
-  void errorSnackBar(String msg)=>Get.rawSnackbar(snackPosition: SnackPosition.BOTTOM,message: msg,title: 'Error!',duration: Duration(seconds: 3));
-  void noInternetSnackBar()=>Get.rawSnackbar(snackPosition: SnackPosition.BOTTOM,message: "Please check your Internet Connection!",title: 'No Internet');
-  void getInternetSnackBar()=>Get.rawSnackbar(snackPosition: SnackPosition.BOTTOM,message: "Internet connection has been restored",title: 'Internet Restored');
-
+  void errorSnackBar(String msg) => Get.rawSnackbar(
+      snackPosition: SnackPosition.BOTTOM,
+      message: msg,
+      title: 'Error!',
+      duration: Duration(seconds: 3));
+  void noInternetSnackBar() => Get.rawSnackbar(
+      snackPosition: SnackPosition.BOTTOM,
+      message: "Please check your Internet Connection!",
+      title: 'No Internet');
+  void getInternetSnackBar() => Get.rawSnackbar(
+      snackPosition: SnackPosition.BOTTOM,
+      message: "Internet connection has been restored",
+      title: 'Internet Restored');
 }
