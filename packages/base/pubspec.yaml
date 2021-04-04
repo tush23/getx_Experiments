@@ -9,7 +9,6 @@ environment:
   flutter: ">=1.17.0"
 
 dependencies:
-  get: ^4.1.2
   geolocator: ^6.1.7 #for getting user current cordinates
   geocoding: 1.0.5
   flutter:

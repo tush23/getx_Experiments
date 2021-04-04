@@ -16,6 +16,8 @@ class NewsControllerWithApiProviders extends GetxController
 
   String get connectionStatus => _connectionStatus.value;
   ApiProvider get apiProvider => _apiProvider;
+
+  var data=''.obs;
   /*
   ConnectivityResult is an enum with the values as { wifi, mobile, none }.
   */

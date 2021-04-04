@@ -55,10 +55,11 @@ class HomeView extends GetView<HomeController> {
                 },
               ),),
                 onPressed: () {
-                getCurrentPosition().then((value) {
-                  printInfo(info: value.toString());
-                }).catchError(()=>Get.dialog(exceptionDialogs()));
-                // Get.dialog(noLocationDialog());
+                // getCurrentPosition().then((value) {
+                //   print(value.toString());
+                //   var ps=value;
+                // }).catchError(()=>Get.dialog(exceptionDialogs()));
+                Get.dialog(noLocationDialog(),barrierDismissible: false);
                 },
                 child: Text("Just Global checks")),
             Text(connectionStatus.value),
