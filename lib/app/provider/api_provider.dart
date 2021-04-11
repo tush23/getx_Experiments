@@ -8,6 +8,7 @@ import 'package:get/get_connect/connect.dart';
 import 'package:getx_cli/app/customs/handler.dart';
 import 'package:getx_cli/app/modules/models/with_json_serialized/news.dart';
 import 'package:getx_cli/app/provider/base_api_services.dart';
+import 'package:getx_cli/app/provider/error_handler.dart';
 
 class ApiProvider extends GetConnect with BaseApiServices {
   static const String _BASE_URL = 'https://newsapi.org/v2/';
@@ -19,13 +20,13 @@ class ApiProvider extends GetConnect with BaseApiServices {
   // }
   // ApiProvider._internal();
 
-  RxString _connectionStatus=''.obs;
+  RxString _connectionStatus = ''.obs;
   final Connectivity _connectivity = new Connectivity();
 
   //For subscription to the ConnectivityResult stream
   StreamSubscription<ConnectivityResult> _connectionSubscription;
 
-  String get connectionStatus =>_connectionStatus.value;
+  String get connectionStatus => _connectionStatus.value;
 
   @override
   void onInit() {
@@ -51,15 +52,15 @@ class ApiProvider extends GetConnect with BaseApiServices {
     initConnectivity();
     _connectionSubscription =
         _connectivity.onConnectivityChanged.listen((ConnectivityResult result) {
-          _connectionStatus.value = result.toString();
-          if(_connectionStatus.value == "ConnectivityResult.mobile" || _connectionStatus.value == "ConnectivityResult.wifi") {
-            Handler().getInternetSnackBar();
-          } else {
-            Handler().noInternetSnackBar();
-          }
-          print("Initstate : $_connectionStatus");
-        });
-
+      _connectionStatus.value = result.toString();
+      if (_connectionStatus.value == "ConnectivityResult.mobile" ||
+          _connectionStatus.value == "ConnectivityResult.wifi") {
+        Handler().getInternetSnackBar();
+      } else {
+        Handler().noInternetSnackBar();
+      }
+      print("Initstate : $_connectionStatus");
+    });
   }
 
   Future<Null> initConnectivity() async {
@@ -75,34 +76,34 @@ class ApiProvider extends GetConnect with BaseApiServices {
     _connectionStatus.value = connectionStatus;
     print("InitConnectivity : $_connectionStatus");
     // ignore: unrelated_type_equality_checks
-    if(_connectionStatus.value == "ConnectivityResult.mobile" || _connectionStatus.value == "ConnectivityResult.wifi") {
+    if (_connectionStatus.value == "ConnectivityResult.mobile" ||
+        _connectionStatus.value == "ConnectivityResult.wifi") {
       // getData();
       // Get.snackbar('No InterNet', "You are not connected to internet");
     } else {
       print('No Internet');
-      Get.snackbar('No InterNet', "You are not connected to internet",snackPosition: SnackPosition.BOTTOM);
+      Get.snackbar('No InterNet', "You are not connected to internet",
+          snackPosition: SnackPosition.BOTTOM);
     }
   }
 
 
-  @override
-  Future<Response> login(Map<String, String> loginMap) async {
-    final response = await get(
-      '',
-      decoder: (data) => News.fromJson(data),
-    );
-    return response;
-  }
 
   @override
-  Future<Response> getNews() async {
+  Future<dynamic> getNews() async {
     final response = await get(
-      'top-headlines?country=in&apikey=$_API_KEY',
-      decoder: (data) => News.fromJson(data),
+      'top-headlines?country=in&apiky=$_API_KEY',
+      // decoder: (data) => News.fromJson(data),
     );
-    // print(response.statusCode);
-    return response;
+    if (response.isOk) {
+      return News.fromJson(response.body);
+    } else {
+      // print(response.status.);
+      return ApiErrorHandler().returnErrorString(response);
+      // return response.status
+    }
   }
+
   @override
   Future<Response> getEverthing(String s) async {
     final response = await get(
@@ -116,5 +117,11 @@ class ApiProvider extends GetConnect with BaseApiServices {
       decoder: (data) => News.fromJson(data),
     );
     return response;
+  }
+
+  @override
+  Future<Response> login(Map<String, String> loginMap) {
+    // TODO: implement login
+    throw UnimplementedError();
   }
 }

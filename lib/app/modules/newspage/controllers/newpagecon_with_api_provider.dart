@@ -26,6 +26,7 @@ class NewsControllerWithApiProviders extends GetxController
   void onReady() {
     print('onReady called');
     // initConnectivity();
+    change(null, status: RxStatus.loading());
 
     getNews();
     super.onReady();
@@ -43,21 +44,22 @@ class NewsControllerWithApiProviders extends GetxController
     // progressDialog.show();
     // Get.con
     _apiProvider.getNews().then((value) {
-      change(null, status: RxStatus.loading());
-      // Get.back();
-      if (value.hasError) {
-        change(null, status: RxStatus.error(value.statusText));
-      }
-      if (value.status.connectionError) {
-        change(null, status: RxStatus.error(value.statusText));
-        // Get.back();
-      }
-      if (value.status.isOk) {
-        // progressDialog.dismiss();
-        // throw Exception('Somthing is not goof -------------');
+        change(value, status: RxStatus.success());
 
-        change(value.body, status: RxStatus.success());
-      }
+      // Get.back();
+
+      // if (value.hasError) {
+      //   change(null, status: RxStatus.error(value.statusText));
+      // }
+      // if (value.status.connectionError) {
+      //   change(null, status: RxStatus.error(value.statusText));
+      //   // Get.back();
+      // }
+      // if (value.status.isOk) {
+      //   // progressDialog.dismiss();
+      //   // throw Exception('Somthing is not goof -------------');
+      //
+      // }
       // value.i
 
       // if(value)

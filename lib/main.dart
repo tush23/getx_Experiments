@@ -32,23 +32,19 @@ void main() {
   //     rootWidget: HomeView(),
   //     debugConfig: debugOptions);
 
-  try {
-    runZonedGuarded<Future<void>>(
-      () async {
-        runApp(
-          GetMaterialApp(
-            // navigatorKey: Catcher.navigatorKey,
-            title: "Application",
-            initialRoute: AppPages.INITIAL,
-            getPages: AppPages.routes,
-          ),
-        );
-      },
-       (dynamic error, StackTrace stackTrace) {
-        Get.defaultDialog(title: 'Error Accured',middleText: ' Error Info--$error' );
-      },
-    );
-  } catch (ex) {
-    print("main.catch-------------");
-  }
+  runZonedGuarded<Future<void>>(
+    () async {
+      runApp(
+        GetMaterialApp(
+          // navigatorKey: Catcher.navigatorKey,
+          title: "Application",
+          initialRoute: AppPages.INITIAL,
+          getPages: AppPages.routes,
+        ),
+      );
+    },
+    (dynamic error, StackTrace stackTrace) {
+      Get.defaultDialog(title: 'Error occurred', middleText: '$error');
+    },
+  );
 }
